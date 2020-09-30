@@ -24,6 +24,10 @@ services:
     environment:
       POSTGRES_PASSWORD: dbpass
       POSTGRES_USER: dbuser
+  adminer:
+    image: adminer
+    ports:
+      - 6060:8080
   order:
     build: ../microservice-kafka/microservice-kafka-order
     links:

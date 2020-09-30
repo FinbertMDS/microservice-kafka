@@ -17,10 +17,12 @@ public class ItemTestDataGenerator {
 
 	@PostConstruct
 	public void generateTestData() {
-		itemRepository.save(new Item("iPod", 42.0));
-		itemRepository.save(new Item("iPod touch", 21.0));
-		itemRepository.save(new Item("iPod nano", 1.0));
-		itemRepository.save(new Item("Apple TV", 100.0));
+		if (itemRepository.count() == 0) {
+			itemRepository.save(new Item("iPod", 42.0));
+			itemRepository.save(new Item("iPod touch", 21.0));
+			itemRepository.save(new Item("iPod nano", 1.0));
+			itemRepository.save(new Item("Apple TV", 100.0));
+		}
 	}
 
 }
